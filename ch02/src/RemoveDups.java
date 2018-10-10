@@ -27,20 +27,26 @@ public class RemoveDups {
 
     /**
      * Time: O(n), Space: O(n)
+     * @return new head
      */
-    public void removeDups1(Node head) {
+    public Node removeDups1(Node head) {
         Set<Integer> existingData = new HashSet<>();
 
-        Node pre = null;
-        while (head != null) {
-            if (existingData.contains(head.data)) {
-                pre.next = head.next;
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node cur = head;
+        Node pre = dummy;
+
+        while (cur != null) {
+            if (existingData.contains(cur.data)) {
+                pre.next = cur.next;
             }else {
-                existingData.add(head.data);
-                pre = head;
+                existingData.add(cur.data);
+                pre = pre.next;
             }
-            head = head.next;
+            cur = cur.next;
         }
+        return dummy.next;
     }
 
     /**
@@ -70,10 +76,10 @@ public class RemoveDups {
         node0.next = node1;
         Node node2 = new Node(0);
         node1.next = node2;
-        removeDups.removeDups1(node0);
-        assertEquals(node0.data, 0);
-        assertEquals(node0.next.data, 1);
-        assertEquals(node0.next.next, null);
+        Node newHead = removeDups.removeDups1(node0);
+        assertEquals(newHead.data, 0);
+        assertEquals(newHead.next.data, 1);
+        assertEquals(newHead.next.next, null);
     }
 
     @Test
