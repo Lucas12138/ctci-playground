@@ -79,6 +79,9 @@ public class LinkedList<AnyType> {
         }
     }
 
+    /**
+     * Simiar with Delete Middle Node
+     */
     public void remove(AnyType key) {
         if (head == null) {
             return;
