@@ -19,6 +19,8 @@
  * Space complexity:
  * worst => O(1)
  *
+ * Stability: Y
+ *
  * http://www.lucas-liu.com
  *
  * @author lucas

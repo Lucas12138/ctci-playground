@@ -16,6 +16,9 @@
  * Space complexity:
  * worst => O(1)
  *
+ * Stability: N
+ * (https://stackoverflow.com/questions/20761396/why-selection-sort-can-be-stable-or-unstable)
+ *
  * http://www.lucas-liu.com
  *
  * @author lucas
