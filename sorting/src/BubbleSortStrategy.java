@@ -10,6 +10,8 @@
  *
  * Time complexity:
  * best => Ω(n)
+ * *notice, to achieve Ω(n), an extra control flag is needed; current implementation's best is Ω(n^2)
+ * (https://stackoverflow.com/questions/12505832/why-is-the-time-complexity-of-bubble-sorts-best-case-being-on)
  * average => Θ(n^2)
  * worst => O(n^2)
  *
