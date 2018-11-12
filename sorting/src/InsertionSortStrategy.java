@@ -37,7 +37,7 @@ public class InsertionSortStrategy implements GenericStrategy{
         for (int right = 1; right < data.length; right += 1) {
             int tmp = data[right];
             int left = right;
-            while (left > 0 && data[left - 1] >= tmp) {
+            while (left > 0 && data[left - 1] > tmp) {
                 // without tmp value, the original right value may be covered below
                 data[left] = data[left - 1];
                 left -= 1;
