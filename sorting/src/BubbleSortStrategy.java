@@ -10,7 +10,8 @@
  *
  * Time complexity:
  * best => Ω(n)
- * *notice, to achieve Ω(n), an extra control flag is needed; current implementation's best is Ω(n^2)
+ * *notice, to achieve Ω(n), an extra control flag is needed
+ * (https://www.geeksforgeeks.org/bubble-sort/)
  * (https://stackoverflow.com/questions/12505832/why-is-the-time-complexity-of-bubble-sorts-best-case-being-on)
  * average => Θ(n^2)
  * worst => O(n^2)
@@ -33,11 +34,20 @@ public class BubbleSortStrategy implements GenericStrategy{
 
     @Override
     public void sort(int[] data) {
+        // add this control flag to get best => Ω(n)
+        boolean swapped;
         for (int right = data.length - 1; right >= 1; right -= 1) {
+            swapped = false;
             for (int left = 0; left < right; left += 1) {
-                if (data[left] > data[right]) {
-                    swap(data, left, right);
+                if (data[left] > data[left + 1]) {
+                    swap(data, left, left + 1);
+                    swapped = true;
                 }
+            }
+
+            // if no swap => it's a sorted array => break
+            if (!swapped) {
+                break;
             }
         }
     }
