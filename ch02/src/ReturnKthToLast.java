@@ -52,11 +52,12 @@ public class ReturnKthToLast {
         Node p1 = head;
         Node p2 = head;
 
-        while (k >= 0) {
+        while (k > 0) {
             if (p2 == null) {
                 return null;
             }
             p2 = p2.next;
+            k -= 1;
         }
 
         while (p2 != null) {
@@ -76,8 +77,8 @@ public class ReturnKthToLast {
         Node node2 = new Node(0);
         node1.next = node2;
 
-        assertEquals(printKthToLast1(node0, 4), null);
-        assertEquals(printKthToLast1(node0, 2).data, 1);
+        assertEquals(printKthToLast2(node0, 4), null);
+        assertEquals(printKthToLast2(node0, 2).data, 1);
     }
 
 }

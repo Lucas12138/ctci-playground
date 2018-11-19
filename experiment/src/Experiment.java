@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collector;
 
 /**
  * Run some experiments here
@@ -11,11 +11,29 @@ import java.util.Map;
 public class Experiment {
 
 
-    public static void main(String[] args) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.putIfAbsent(1, map.get(1) + 1);
-        for (Integer i : map.keySet()) {
-            System.out.println(i + ": " + map.get(i));
+
+    static int someMethod(int a) {
+        if (a == 0) {
+            return 0;
         }
+
+        return someMethod(a - 1) + a;
+    }
+
+    static int b = 0;
+    static void someMethod2(int a) {
+        if (a == 0) {
+            return;
+        }
+        b += a;
+        someMethod(a - 1);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(someMethod(5));
+        int sum = 0;
+
+        System.out.println(sum);
     }
 }
