@@ -18,22 +18,36 @@ public class SortingTest {
 
     @Test
     public void testBubbleSort() {
-        BubbleSortStrategy bubbleSortStrategy = new BubbleSortStrategy();
+        GenericStrategy bubbleSortStrategy = new BubbleSortStrategy();
         bubbleSortStrategy.sort(data);
         assertEquals(Arrays.toString(data), Arrays.toString(dataSorted));
     }
 
     @Test
     public void testSelectionSort() {
-        SelectionSortStrategy selectionSortStrategy = new SelectionSortStrategy();
+        GenericStrategy selectionSortStrategy = new SelectionSortStrategy();
         selectionSortStrategy.sort(data);
         assertEquals(Arrays.toString(data), Arrays.toString(dataSorted));
     }
 
     @Test
     public void testInsertionSort() {
-        InsertionSortStrategy insertionSortStrategy = new InsertionSortStrategy();
+        GenericStrategy insertionSortStrategy = new InsertionSortStrategy();
         insertionSortStrategy.sort(data);
+        assertEquals(Arrays.toString(data), Arrays.toString(dataSorted));
+    }
+
+    @Test
+    public void testMergeSort() {
+        GenericStrategy mergeSortStrategy = new MergeSortStrategy();
+        mergeSortStrategy.sort(data);
+        assertEquals(Arrays.toString(data), Arrays.toString(dataSorted));
+    }
+
+    @Test
+    public void testQuickSort() {
+        GenericStrategy quickSortStrategy = new QuickSortStrategy();
+        quickSortStrategy.sort(data);
         assertEquals(Arrays.toString(data), Arrays.toString(dataSorted));
     }
 }
